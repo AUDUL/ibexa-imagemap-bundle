@@ -10,6 +10,7 @@ use Ibexa\Contracts\Core\Persistence\Content\VersionInfo;
 use Ibexa\Core\FieldType\Image\AliasCleanerInterface;
 use Ibexa\Core\FieldType\Image\ImageStorage;
 use Ibexa\Core\FieldType\Image\PathGenerator;
+use Ibexa\Core\FieldType\Validator\FileExtensionBlackListValidator;
 use Ibexa\Core\IO\FilePathNormalizerInterface;
 use Ibexa\Core\IO\IOServiceInterface;
 use Ibexa\Core\IO\MetadataHandler;
@@ -29,9 +30,10 @@ class Storage extends ImageStorage
         MetadataHandler $imageSizeMetadataHandler,
         AliasCleanerInterface $aliasCleaner,
         FilePathNormalizerInterface $filePathNormalizer,
+        FileExtensionBlackListValidator $fileExtensionBlackListValidator,
         ImageMapStorageGateway $imageMapGateway
     ) {
-        parent::__construct($gateway, $ioService, $pathGenerator, $imageSizeMetadataHandler, $aliasCleaner, $filePathNormalizer);
+        parent::__construct($gateway, $ioService, $pathGenerator, $imageSizeMetadataHandler, $aliasCleaner, $filePathNormalizer, $fileExtensionBlackListValidator);
 
         $this->imageMapGateway = $imageMapGateway;
     }

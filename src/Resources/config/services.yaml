@@ -14,6 +14,7 @@ services:
             $imageSizeMetadataHandler: '@Ibexa\Core\IO\MetadataHandler\ImageSize'
             $aliasCleaner: '@Ibexa\Core\FieldType\Image\AliasCleanerInterface'
             $filePathNormalizer: '@Ibexa\Core\IO\FilePathNormalizerInterface'
+            $fileExtensionBlackListValidator: '@Ibexa\Core\FieldType\Validator\FileExtensionBlackListValidator'
             $imageMapGateway: '@Onisep\IbexaImageMapBundle\FieldType\ImageMap\ImageMapStorage\Gateway\LegacyStorage'
         tags:
             - { name: ibexa.field_type.storage.external.handler, alias: imagemap }
