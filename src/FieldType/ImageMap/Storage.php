@@ -9,6 +9,7 @@ use eZ\Publish\Core\FieldType\Image\AliasCleanerInterface;
 use eZ\Publish\Core\FieldType\Image\ImageStorage;
 use eZ\Publish\Core\FieldType\Image\ImageStorage\Gateway as ImageStorageGateway;
 use eZ\Publish\Core\FieldType\Image\PathGenerator;
+use eZ\Publish\Core\FieldType\Validator\FileExtensionBlackListValidator;
 use eZ\Publish\Core\IO\FilePathNormalizerInterface;
 use eZ\Publish\Core\IO\IOServiceInterface;
 use eZ\Publish\Core\IO\MetadataHandler;
@@ -31,9 +32,10 @@ class Storage extends ImageStorage
         DeprecationWarner $deprecationWarner,
         ImageMapStorageGateway $imageMapGateway,
         AliasCleanerInterface $aliasCleaner,
-        FilePathNormalizerInterface $filePathNormalizer
+        FilePathNormalizerInterface $filePathNormalizer,
+        FileExtensionBlackListValidator $fileExtensionBlackListValidator
     ) {
-        parent::__construct($baseGateway, $IOService, $pathGenerator, $imageSizeMetadataHandler, $deprecationWarner, $aliasCleaner, $filePathNormalizer);
+        parent::__construct($baseGateway, $IOService, $pathGenerator, $imageSizeMetadataHandler, $deprecationWarner, $aliasCleaner, $filePathNormalizer, $fileExtensionBlackListValidator);
 
         $this->imageMapGateway = $imageMapGateway;
     }

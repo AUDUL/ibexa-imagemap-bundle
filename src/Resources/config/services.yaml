@@ -16,6 +16,7 @@ services:
             - '@Onisep\IbexaImageMapBundle\FieldType\ImageMap\ImageMapStorage\Gateway\LegacyStorage'
             - '@?ezpublish.image_alias.imagine.alias_cleaner'
             - '@eZ\Publish\Core\IO\FilePathNormalizerInterface'
+            - '@ezpublish.fieldType.validator.black_list'
         tags:
             - { name: ezplatform.field_type.external_storage_handler, alias: imagemap }
 
